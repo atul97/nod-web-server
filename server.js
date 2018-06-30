@@ -13,7 +13,7 @@ app.use((req,res,next)  => {
    console.log(log);
    fs.appendFile('server.log',log + '\n',(err) => {
      if(err) {
-       console.log('errorr');
+       console.log('error');
      }
    });
    next();
@@ -35,6 +35,12 @@ app.get('/about',(req,res) => {
   res.render('about.hbs',{
     pageTitle:'Some Website',
 
+  });
+});
+app.get('/projects',(req,res) => {
+  res.render('projects.hbs',{
+    pageTitle:'A project',
+    WelcomeMessage:'New Project'
   });
 });
 app.get('/bad',(req,res) => {
